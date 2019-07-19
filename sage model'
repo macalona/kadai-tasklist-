@@ -1,0 +1,123 @@
+[1mdiff --git a/app/Http/Controllers/tasksController.php b/app/Http/Controllers/tasksController.php[m
+[1mindex d95cd74..ea52afd 100644[m
+[1m--- a/app/Http/Controllers/tasksController.php[m
+[1m+++ b/app/Http/Controllers/tasksController.php[m
+[36m@@ -4,7 +4,9 @@[m [mnamespace App\Http\Controllers;[m
+ [m
+ use Illuminate\Http\Request;[m
+ [m
+[31m-class tasksController extends Controller[m
+[32m+[m[32muse App\Message;[m
+[32m+[m
+[32m+[m[32mclass TasksController extends Controller[m
+ {[m
+     /**[m
+      * Display a listing of the resource.[m
+[36m@@ -13,7 +15,11 @@[m [mclass tasksController extends Controller[m
+      */[m
+     public function index()[m
+     {[m
+[31m-        //[m
+[32m+[m[32m         $messages = Message::all();[m
+[32m+[m
+[32m+[m[32m        return view('messages.index', [[m
+[32m+[m[32m            'messages' => $messages,[m
+[32m+[m[32m        ]);[m
+     }[m
+ [m
+     /**[m
+[36m@@ -23,7 +29,11 @@[m [mclass tasksController extends Controller[m
+      */[m
+     public function create()[m
+     {[m
+[31m-        //[m
+[32m+[m[32m         $message = new Message;[m
+[32m+[m
+[32m+[m[32m        return view('messages.create', [[m
+[32m+[m[32m            'message' => $message,[m
+[32m+[m[32m        ]);[m
+     }[m
+ [m
+     /**[m
+[36m@@ -45,7 +55,11 @@[m [mclass tasksController extends Controller[m
+      */[m
+     public function show($id)[m
+     {[m
+[31m-        //[m
+[32m+[m[32m          $message = Message::find($id);[m
+[32m+[m
+[32m+[m[32m        return view('messages.show', [[m
+[32m+[m[32m            'message' => $message,[m
+[32m+[m[32m        ]);[m
+     }[m
+ [m
+     /**[m
+[36m@@ -56,7 +70,11 @@[m [mclass tasksController extends Controller[m
+      */[m
+     public function edit($id)[m
+     {[m
+[31m-        //[m
+[32m+[m[32m          $message = Message::find($id);[m
+[32m+[m
+[32m+[m[32m        return view('messages.edit', [[m
+[32m+[m[32m            'message' => $message,[m
+[32m+[m[32m        ]);[m
+     }[m
+ [m
+     /**[m
+[1mdiff --git a/resources/views/create.php b/resources/views/create.php[m
+[1mdeleted file mode 100644[m
+[1mindex af212c3..0000000[m
+[1m--- a/resources/views/create.php[m
+[1m+++ /dev/null[m
+[36m@@ -1,7 +0,0 @@[m
+[31m-@extends('layouts.app')[m
+[31m-[m
+[31m-@section('content')[m
+[31m-[m
+[31m-<!-- ここにページ毎のコンテンツを書く -->[m
+[31m-[m
+[31m-@endsection[m
+\ No newline at end of file[m
+[1mdiff --git a/resources/views/edit.php b/resources/views/edit.php[m
+[1mdeleted file mode 100644[m
+[1mindex af212c3..0000000[m
+[1m--- a/resources/views/edit.php[m
+[1m+++ /dev/null[m
+[36m@@ -1,7 +0,0 @@[m
+[31m-@extends('layouts.app')[m
+[31m-[m
+[31m-@section('content')[m
+[31m-[m
+[31m-<!-- ここにページ毎のコンテンツを書く -->[m
+[31m-[m
+[31m-@endsection[m
+\ No newline at end of file[m
+[1mdiff --git a/resources/views/index.php b/resources/views/index.php[m
+[1mdeleted file mode 100644[m
+[1mindex af212c3..0000000[m
+[1m--- a/resources/views/index.php[m
+[1m+++ /dev/null[m
+[36m@@ -1,7 +0,0 @@[m
+[31m-@extends('layouts.app')[m
+[31m-[m
+[31m-@section('content')[m
+[31m-[m
+[31m-<!-- ここにページ毎のコンテンツを書く -->[m
+[31m-[m
+[31m-@endsection[m
+\ No newline at end of file[m
+[1mdiff --git a/resources/views/show.php b/resources/views/show.php[m
+[1mdeleted file mode 100644[m
+[1mindex af212c3..0000000[m
+[1m--- a/resources/views/show.php[m
+[1m+++ /dev/null[m
+[36m@@ -1,7 +0,0 @@[m
+[31m-@extends('layouts.app')[m
+[31m-[m
+[31m-@section('content')[m
+[31m-[m
+[31m-<!-- ここにページ毎のコンテンツを書く -->[m
+[31m-[m
+[31m-@endsection[m
+\ No newline at end of file[m

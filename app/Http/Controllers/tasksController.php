@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class tasksController extends Controller
+use App\Message;
+
+class TasksController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +15,11 @@ class tasksController extends Controller
      */
     public function index()
     {
-        //
+         $messages = Message::all();
+
+        return view('messages.index', [
+            'messages' => $messages,
+        ]);
     }
 
     /**
@@ -23,7 +29,11 @@ class tasksController extends Controller
      */
     public function create()
     {
-        //
+         $message = new Message;
+
+        return view('messages.create', [
+            'message' => $message,
+        ]);
     }
 
     /**
@@ -45,7 +55,11 @@ class tasksController extends Controller
      */
     public function show($id)
     {
-        //
+          $message = Message::find($id);
+
+        return view('messages.show', [
+            'message' => $message,
+        ]);
     }
 
     /**
@@ -56,7 +70,11 @@ class tasksController extends Controller
      */
     public function edit($id)
     {
-        //
+          $message = Message::find($id);
+
+        return view('messages.edit', [
+            'message' => $message,
+        ]);
     }
 
     /**
