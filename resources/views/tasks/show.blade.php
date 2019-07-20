@@ -4,16 +4,16 @@
 
 <!-- ここにページ毎のコンテンツを書く -->
 
-    <h1>id = {{ $message->id }} のメッセージ詳細ページ</h1>
+    <h1>id = {{ $task->id }} のメッセージ詳細ページ</h1>
 
     <table class="table table-bordered">
         <tr>
             <th>id</th>
-            <td>{{ $message->id }}</td>
+            <td>{{ $task->id }}</td>
         </tr>
         <tr>
             <th>メッセージ</th>
-            <td>{{ $message->content }}</td>
+            <td>{{ $task->content }}</td>
         </tr>
     </table>
 @endsection
