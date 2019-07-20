@@ -15,7 +15,7 @@ class TasksController extends Controller
      */
     public function index()
     {
-         $tasks = Task::all();
+ $tasks = Task::all();
 
         return view('tasks.index', [
             'tasks' => $tasks,
@@ -29,7 +29,7 @@ class TasksController extends Controller
      */
     public function create()
     {
-         $message = new Task;
+         $task = new Task;
 
         return view('tasks.create', [
             'task' => $task,
@@ -44,7 +44,11 @@ class TasksController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $task = new Task;
+        $task->content = $request->content;
+        $task->save();
+
+        return redirect('/');
     }
 
     /**
@@ -55,7 +59,7 @@ class TasksController extends Controller
      */
     public function show($id)
     {
-          $message = Task::find($id);
+          $task = Task::find($id);
 
         return view('tasks.show', [
             'task' => $task,
@@ -86,7 +90,11 @@ class TasksController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $task = Task::find($id);
+        $task->content = $request->content;
+        $task->save();
+
+        return redirect('/');
     }
 
     /**

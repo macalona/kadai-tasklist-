@@ -13,13 +13,7 @@ Route::get('/', function () {
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('tasks/{id}', 'TasksController@show');
 
-Route::post('tasks', 'TasksController@store');
-
-Route::put('tasks/{id}', 'TasksController@update');
-
-Route::delete('tasks/{id}', 'TasksController@destroy');
 
 
 Route::get('/', 'TasksController@index');
