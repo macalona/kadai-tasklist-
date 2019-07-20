@@ -24,6 +24,8 @@
             </nav>
         </header>
         
+         @include('commons.navbar')
+         
         <div class="container">
             @yield('content')
         </div>
